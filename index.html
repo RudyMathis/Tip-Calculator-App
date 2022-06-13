@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="main.js" defer></script>
+		<title>Frontend Mentor | Tip calculator app</title>
+	</head>
+	<body>
+		<img class="logo" src="./images/logo.svg" alt="Splitter Logo" />
+		<main class="calculator-card">
+			<section class="input-section">
+				<p class="money-input">Bill</p>
+				<input
+					name="bill"
+					id="bill"
+					data-type="currency"
+					class="input"
+					placeholder="0"
+				/>
+				<p class="money-input">Select Tip %</p>
+				<button class="tip-btn" id="5js">5%</button>
+				<button class="tip-btn" id="10js">10%</button>
+				<button class="tip-btn" id="15js">15%</button>
+				<button class="tip-btn" id="25js">25%</button>
+				<button class="tip-btn" id="50js">50%</button>
+				<input
+					name="custom"
+					id="custom"
+					data-type="currency"
+					class="input"
+					placeholder="Custom "
+				/>
+				<p class="money-input">Number of People</p>
+				<input
+					type="number"
+					name="number-people"
+					id="number-people"
+					class="input"
+					placeholder="0"
+				/>
+			</section>
+			<section class="display-section">
+				<div class="amount-container">
+					<div class="per-person">
+						<p class="tip-output">Tip Amount</p>
+						<p class="person">/ person</p>
+					</div>
+					<p class="per-person-amount" id="tip-js">$0.00</p>
+				</div>
+				<div class="amount-container">
+					<div class="per-person">
+						<p class="tip-output">Total</p>
+						<p class="person">/ person</p>
+					</div>
+					<p class="per-person-amount" id="total-js">$0.00</p>
+				</div>
+				<button class="reset" disabled>Reset</button>
+			</section>
+		</main>
+	</body>
+</html>
