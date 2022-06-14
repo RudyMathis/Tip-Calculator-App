@@ -69,10 +69,8 @@ bill.addEventListener("keyup",()=>{
     } 
 
     if(bill.value > 0){
-        console.log("hello")
         totalTipFunction();
     } else {
-        console.log("bye")
         totalJS.innerHTML = "$0.00"
     }
 
@@ -90,10 +88,10 @@ function totalTipFunction(){
         btn.addEventListener("click",()=>{
             
             billTip = btn.innerHTML.replace(/%/g,"");
-            const tipNumb = Number(billTip * .01);
-            tipJS.innerHTML = `\$${billTotal * tipNumb}`
-            totalJS.innerHTML = `\$${Number(billTotal) + Number(billTip)}`;
-            // round to the nearest .00
+            const tipNumb = Number(billTip * .01 );
+            tipJS.innerHTML = `\$${Math.round(100*billTotal * tipNumb)/100}`
+            totalJS.innerHTML = `\$${parseFloat(Number(billTotal) + Math.round(100*billTotal * tipNumb)/100).toFixed(2)}`;
+
     })
 })
 };
