@@ -47,21 +47,29 @@ const numbOfPeople = document.querySelector("#number-people");
 
 
 function peopleFunction(){
-
+    
     numbOfPeople.addEventListener("keyup",(e)=>{
-        console.log(e.target.value);
+        // console.log(e.target.value);
+    const numbPeopleAmount = `${Number(e.target.value)}`;
+    numbPeopleAmount.innerHTML = `${numbOfPeople}`;
+    // totalJS.innerHTML = `${numbPeopleAmount}`;
+    // console.log(numbPeopleAmount)
+    console.log(numbPeopleAmount)
+
     });
 };
 
 // billFunction();
 // tipFunction();
-peopleFunction();
 
 
 
 bill.addEventListener("keyup",()=>{
-
+    
     totalAmountFunction();
+    peopleFunction();
+
+
 
     totalJS.innerHTML = `\$${billTotal}`
     if(totalJS.innerHTML === "$"){
@@ -73,9 +81,10 @@ bill.addEventListener("keyup",()=>{
     } else {
         totalJS.innerHTML = "$0.00"
     }
-
+    
 })
 
+// peopleFunction();
 
 function totalAmountFunction(){
     billTotal = bill.value;
@@ -89,10 +98,9 @@ function totalTipFunction(){
             
             billTip = btn.innerHTML.replace(/%/g,"");
             const tipNumb = Number(billTip * .01 );
-            tipJS.innerHTML = `\$${Math.round(100*billTotal * tipNumb)/100}`
-            totalJS.innerHTML = `\$${parseFloat(Number(billTotal) + Math.round(100*billTotal * tipNumb)/100).toFixed(2)}`;
-
+            tipJS.innerHTML = `\$${(Math.round(100*billTotal * tipNumb)/100) / numbOfPeople.value}`
+            totalJS.innerHTML = `\$${(parseFloat(Number(billTotal) + Math.round(100*billTotal * tipNumb)/100).toFixed(2)) / numbOfPeople.value}`;
+            
+        })
     })
-})
 };
-
