@@ -13,37 +13,36 @@ const tipJS = document.querySelector("#tip-js");
 const tipBtn = document.querySelectorAll(".tip-btn");
 const numbOfPeople = document.querySelector("#number-people");
 
+// let billTotal = "bill";
+// let tipNumb = "tip";
 
 // gets bill input and put it in total\
-function billFunction(){
+// function billFunction(){
 
-    bill.addEventListener("keyup",(e)=>{
-        // totalJS.innerHTML = `${e.target.value}`;
-        // console.log(e.target.value * .05)
-        // console.log(e.target.value)
-        billTotal = e.target.value;
-        totalFunction(billTotal);
-    });
-};
+//     bill.addEventListener("keyup",(e)=>{
+//         billTotal = e.target.value;
+//         console.log(billTotal)
+//         totalFunction(billTotal);
+//     });
+// };
 
 
 
 
 // gets tip input
-function tipFunction(){
+// function tipFunction(){
 
-    tipBtn.forEach((btn) =>{
-        btn.addEventListener("click",()=>{
+//     tipBtn.forEach((btn) =>{
+//         btn.addEventListener("click",()=>{
             
-            // tipJS.innerHTML = `${btn.innerHTML.replace(/%/g,'')}`
-            // billTip = btn.innerHTML.replace(/%/g,'');
-            // tipJS.innerHTML = `${e.target.value}`
-            // console.log(btn.innerHTML.replace(/%/g,""));
-            billTip = btn.innerHTML.replace(/%/g,"");
-            totalFunction(billTip);
-    })
-})
-};
+//             billTip = btn.innerHTML.replace(/%/g,"");
+//             let tipNumb = Number(billTip * .01);
+//             console.log(tipNumb);
+//             totalFunction(tipNumb);
+
+//     })
+// })
+// };
 
 
 
@@ -54,20 +53,48 @@ function peopleFunction(){
     });
 };
 
-billFunction();
-tipFunction();
+// billFunction();
+// tipFunction();
 peopleFunction();
 
-totalFunction();
 
-function totalFunction(bill,tip){
-    console.log(bill);
-    totalJS.innerHTML = `\$${bill}`
 
+bill.addEventListener("keyup",()=>{
+
+    totalAmountFunction();
+
+    totalJS.innerHTML = `\$${billTotal}`
+    if(totalJS.innerHTML === "$"){
+        totalJS.innerHTML = "$0.00"
+    } 
+
+    if(bill.value > 0){
+        console.log("hello")
+        totalTipFunction();
+    } else {
+        console.log("bye")
+        totalJS.innerHTML = "$0.00"
+    }
+
+})
+
+
+function totalAmountFunction(){
+    billTotal = bill.value;
 }
 
-// totalMathFunction(billFunction,tipFunction);
 
-// function totalMathFunction(bill, tip){
-//  console.log(bill && tip)
-// }
+function totalTipFunction(){
+
+    tipBtn.forEach((btn) =>{
+        btn.addEventListener("click",()=>{
+            
+            billTip = btn.innerHTML.replace(/%/g,"");
+            const tipNumb = Number(billTip * .01);
+            tipJS.innerHTML = `\$${billTotal * tipNumb}`
+            totalJS.innerHTML = `\$${Number(billTotal) + Number(billTip)}`;
+            // round to the nearest .00
+    })
+})
+};
+
