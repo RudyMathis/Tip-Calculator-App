@@ -12,6 +12,7 @@ const totalJS = document.querySelector("#total-js");
 const tipJS = document.querySelector("#tip-js");
 const tipBtn = document.querySelectorAll(".tip-btn");
 const numbOfPeople = document.querySelector("#number-people");
+const resetBtn = document.querySelector(".reset");
 
 
 function peopleFunction(){
@@ -54,6 +55,10 @@ bill.addEventListener("keyup",()=>{
 
 function totalAmountFunction(){
     billTotal = bill.value;
+    if(billTotal >= 0){
+        
+        resetFunction();
+    }
 }
 
 
@@ -71,3 +76,21 @@ function totalTipFunction(){
         })
     })
 };
+
+
+function resetFunction(){
+
+    resetBtn.removeAttribute("disabled");
+
+    resetBtn.addEventListener("click",()=>{
+        bill.value = 0;
+        bill.innerHTML = 0.00;
+        numbOfPeople.value = 1;
+        tipJS.innerHTML = 0.00;
+        totalJS.innerHTML = 00;
+        resetBtn.setAttribute("disabled", "")
+        console.log(totalJS)
+        })
+}
+
+
