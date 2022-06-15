@@ -70,7 +70,8 @@ body {
     font-size: .75rem;
 }
 
-.input{
+.input,
+#custom{
     background-repeat: no-repeat;
     background-position: left 10px center;
     border: none;

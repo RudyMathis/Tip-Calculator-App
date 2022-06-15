@@ -22,7 +22,6 @@ function peopleFunction(){
     numbOfPeople.addEventListener("keyup",(e)=>{
     const numbPeopleAmount = `${Number(e.target.value)}`;
     numbPeopleAmount.innerHTML = `${numbOfPeople}`;
-
     if(bill.value >= 0){
         outputFunction()
         }
@@ -32,10 +31,9 @@ function peopleFunction(){
 
 // bill input
 bill.addEventListener("keyup",()=>{
-    
+
     totalAmountFunction();
     peopleFunction();
-
     totalJS.innerHTML = `\$${billTotal}`
     if(totalJS.innerHTML === "$"){
         totalJS.innerHTML = "$0.00"
@@ -53,11 +51,8 @@ function totalAmountFunction(){
 
     billTotal = bill.value;
     if(billTotal >= 0){
-        
         resetFunction();
     }
-    
-
 }
 
 // totaltip/person
@@ -67,12 +62,11 @@ function totalTipFunction(){
         btn.addEventListener("click",()=>{
             billTip = btn.innerHTML.replace(/%/g,"");
             outputFunction()
+            peopleFunction();
         })
-
         custom.addEventListener("keyup",()=>{
         customTip = custom.value;
         outputFunction()
-        console.log(customTip)
     })
     })
 
@@ -81,7 +75,6 @@ function totalTipFunction(){
 
 // reset
 function resetFunction(){
-    
     resetBtn.removeAttribute("disabled");
     resetBtn.addEventListener("click",()=>{
         window.location.reload()
@@ -96,6 +89,9 @@ function outputFunction(){
 
     tipJS.innerHTML = `\$${parseFloat((billTotal * (tipNumb || customTip)) / Number(numbPeopleAmount)).toFixed(2)}`;
     totalJS.innerHTML =`\$${parseFloat((Number(billTotal) + (billTotal * (tipNumb || customTip))) / Number(numbPeopleAmount)).toFixed(2)}`;
+
+    if(numbOfPeople.value == ""){
+        tipJS.innerHTML = `\$${parseFloat(billTotal * (tipNumb || customTip)).toFixed(2)}` ;
+        totalJS.innerHTML = `\$${parseFloat(Number(billTotal) + (billTotal * (tipNumb || customTip))).toFixed(2)}`;
+    }
 }
-
-
