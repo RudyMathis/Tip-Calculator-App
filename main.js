@@ -1,12 +1,3 @@
-// all fields need to be filled
-// numbers can only reach 2 decimeal places
-// numbers can only input numbers and 1 period
-// do math based on % button
-// bill / people * percent = tip
-// (bill / numbOfPeople) + (percent * (bill/numb0People)) = total
-// if any interaction remove disable from reset
-// reset button sets all fields to inital
-
 const bill = document.querySelector("#bill");
 const totalJS = document.querySelector("#total-js");
 const tipJS = document.querySelector("#tip-js");
@@ -14,7 +5,6 @@ const tipBtn = document.querySelectorAll(".tip-btn");
 const numbOfPeople = document.querySelector("#number-people");
 const resetBtn = document.querySelector(".reset");
 const custom = document.querySelector("#custom");
-
 
 
 // number of people
@@ -30,8 +20,7 @@ function peopleFunction(){
 
 
 // bill input
-bill.addEventListener("keyup",()=>{
-
+bill.addEventListener("keyup",(e)=>{
     totalAmountFunction();
     peopleFunction();
     totalJS.innerHTML = `\$${billTotal}`
@@ -46,6 +35,7 @@ bill.addEventListener("keyup",()=>{
     }
 })
 
+
 // totalperson
 function totalAmountFunction(){
 
@@ -54,6 +44,7 @@ function totalAmountFunction(){
         resetFunction();
     }
 }
+
 
 // totaltip/person
 function totalTipFunction(){
@@ -69,7 +60,6 @@ function totalTipFunction(){
         outputFunction()
     })
     })
-
 }
 
 
