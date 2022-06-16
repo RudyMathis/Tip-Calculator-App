@@ -47,8 +47,10 @@ body {
 
 .money-input{
     color: var(--Dark-Grayish-Cyan);
-    font-size: .75rem;
+    font-size: .55rem;
+    text-align: start;
 }
+
 
 .input,
 #custom{
@@ -58,10 +60,34 @@ body {
     background-color: var(--Very-Light-Grayish-Cyan);
     color: var(--Very-Dark-Cyan);
     text-align: end;
-    padding: .25em;
+    padding: .25em 0;
     outline-color:var(--Strong-Cyan);
     border-radius: .25em;
     margin: .5em 0;
+    max-width: 100%;
+}
+
+.input{
+    width: 100%;
+}
+
+.number-of-people-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-section{
+    text-align: center;
+}
+
+.input.error{
+    outline-color: hsl(24.2,100%,50%);
+}
+
+.error-alert{
+    display: none;
+    font-size: .55rem;
+    color: hsl(24.2,100%,50%);
 }
 
 #custom{
@@ -132,7 +158,7 @@ body {
 }
 
 .reset{
-    width: 100%;
+    max-width: 100%;
     background-color: var(--Strong-Cyan);
     border: none;
     padding: .25em 0;
@@ -153,23 +179,33 @@ body {
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        height: 100vh;
         background-color: var(--Light-Grayish-Cyan);
     }
 
     .calculator-card{
         align-items: stretch;
         flex-direction: row;
+        justify-content: space-between;
         border-radius: 1em;
         max-width: 35em;
     }
 
     .display-section{
-    margin: initial;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 0 0 1em;
     }
 
-    .reset{
-    position: relative;
-    top: 100px;
+    .tip-btn,
+    #custom{
+        width: 4em;
+    }
+}
+
+@media (max-width: 376px){
+    .tip-btn,
+    #custom{
+        width: 4em;
     }
 }

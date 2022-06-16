@@ -26,23 +26,28 @@
 				<button class="tip-btn">25%</button>
 				<button class="tip-btn">50%</button>
 				<input type="number" id="custom" class="tip-btn" placeholder="Custom" />
-				<p class="money-input">Number of People</p>
+				<div class="number-of-people-container">
+					<p class="money-input">Number of People</p>
+					<p class="error-alert">Can't be zero</p>
+				</div>
 				<input type="number" id="number-people" class="input" value="1" />
 			</section>
 			<section class="display-section">
-				<div class="amount-container">
-					<div class="per-person">
-						<p class="tip-output">Tip Amount</p>
-						<p class="person">/ person</p>
+				<div class="output-container">
+					<div class="amount-container">
+						<div class="per-person">
+							<p class="tip-output">Tip Amount</p>
+							<p class="person">/ person</p>
+						</div>
+						<p class="per-person-amount" id="tip-js">$0.00</p>
 					</div>
-					<p class="per-person-amount" id="tip-js">$0.00</p>
-				</div>
-				<div class="amount-container">
-					<div class="per-person">
-						<p class="tip-output">Total</p>
-						<p class="person">/ person</p>
+					<div class="amount-container">
+						<div class="per-person">
+							<p class="tip-output">Total</p>
+							<p class="person">/ person</p>
+						</div>
+						<p class="per-person-amount" id="total-js">$0.00</p>
 					</div>
-					<p class="per-person-amount" id="total-js">$0.00</p>
 				</div>
 				<button class="reset" disabled>Reset</button>
 			</section>

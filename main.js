@@ -5,7 +5,7 @@ const tipBtn = document.querySelectorAll(".tip-btn");
 const numbOfPeople = document.querySelector("#number-people");
 const resetBtn = document.querySelector(".reset");
 const custom = document.querySelector("#custom");
-
+const error = document.querySelector(".error-alert");
 
 // number of people
 function peopleFunction(){
@@ -17,6 +17,7 @@ function peopleFunction(){
         }
     });
 };
+
 
 
 // bill input
@@ -80,8 +81,13 @@ function outputFunction(){
     tipJS.innerHTML = `\$${parseFloat((billTotal * (tipNumb || customTip)) / Number(numbPeopleAmount)).toFixed(2)}`;
     totalJS.innerHTML =`\$${parseFloat((Number(billTotal) + (billTotal * (tipNumb || customTip))) / Number(numbPeopleAmount)).toFixed(2)}`;
 
-    if(numbOfPeople.value == ""){
+    if(numbOfPeople.value == 0){
         tipJS.innerHTML = `\$${parseFloat(billTotal * (tipNumb || customTip)).toFixed(2)}` ;
         totalJS.innerHTML = `\$${parseFloat(Number(billTotal) + (billTotal * (tipNumb || customTip))).toFixed(2)}`;
+        numbOfPeople.classList.add("error");
+        error.style.display = "inline"
+    } else {
+        numbOfPeople.classList.remove("error");
+        error.style.display = "none"
     }
 }
